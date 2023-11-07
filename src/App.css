@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -16,4 +17,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.chat-input {
+  border-radius: 8px;
+  padding: 10px;
+  color: #282C34;
+  margin: 30px 0px;
+}
+
+.chat-button {
+  padding: 10px;
+  border-radius: 8px;
+  color: #282C34;
 }
