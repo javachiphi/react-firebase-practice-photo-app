@@ -31,3 +31,11 @@
   border-radius: 8px;
   color: #282C34;
 }
+
+.timestamp {
+  font-size: 14px;
+}
+
+.post-image {
+  width: 200px;
+}

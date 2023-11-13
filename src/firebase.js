@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getStorage } from 'firebase/storage';
 
 // TODO: Replace with your app's Firebase project configuration
 const firebaseConfig = {
@@ -18,4 +19,6 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 console.log('firebase connected?', firebaseApp)
 // Get a reference to the database service and export the reference for other modules
+
+export const storage = getStorage(firebaseApp);
 export const database = getDatabase(firebaseApp);
