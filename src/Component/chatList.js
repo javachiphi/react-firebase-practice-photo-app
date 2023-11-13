@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react'; // Make sure to import useState
 import { ref, onChildAdded } from 'firebase/database';
 import { database } from '../firebase';
-import moment from 'moment'; 
+import moment from 'moment';
 
-const isISODate = (dateString) => {
-  // An ISO date string will typically start with a four-digit year
-  return /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/.test(dateString);
-};
 
+const groupChatsByDate = (chats) => {
+  const groupedChats = {};
+
+  chats.forEach(chat => {
+    const date = timeFormatter(chat.dt, 'date');
+    if(!groupedChats[date]){
+      groupedChats[date] = [];
+    }
+
+    groupedChats[date].push(chat);
+  } )
+
+  return groupedChats;
+}
 
 const timeFormatter = (timestamp, type) => {
   const dateObject = new Date(timestamp);
@@ -47,15 +57,31 @@ export default function ChatList() {
     return () => unsubscribe();
   },[]);
   
+  const chatsGroupedByDate = groupChatsByDate(chats);
+
+  const sortedDates = Object.keys(chatsGroupedByDate).sort((a, b) => {
+    const dateA = moment(a, 'MMM/D');
+    const dateB = moment(b, 'MMM/D');
+    return dateB - dateA;
+  });
+
   return (
     <div>
-      {chats.map(chat => (
-        <div key={chat.id}>
-          <h3>{chat.name}</h3>
-          {chat.url && <img className='post-image' src={chat.url}/>}
-          <div className='timestamp'> {timeFormatter(chat.dt, 'time')}</div>
+      {sortedDates.map(date => (
+        <div key={date}>
+          <h2 className='date'>{date}</h2> {/* Display the date */}
+          {chatsGroupedByDate[date].map(chat => (
+            <div key={chat.id} className='chat'>
+              <h3>{chat.name}</h3>
+              {chat.url && <img className='post-image' src={chat.url}/>}
+              <div className='timestamp'>{timeFormatter(chat.dt, 'time')}</div> {/* Display the time */}
+            </div>
+          ))}
         </div>
       ))}
+
+
+
     </div>
   );
 }
