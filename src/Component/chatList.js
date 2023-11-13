@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'; // Make sure to import useSt
 import { ref, onChildAdded } from 'firebase/database';
 import { database } from '../firebase';
 import moment from 'moment';
+import Like from './like';
 
 
 const groupChatsByDate = (chats) => {
@@ -74,6 +75,7 @@ export default function ChatList() {
             <div key={chat.id} className='chat'>
               <h3>{chat.name}</h3>
               {chat.url && <img className='post-image' src={chat.url}/>}
+              <Like chatId={chat.id}/>
               <div className='timestamp'>{timeFormatter(chat.dt, 'time')}</div> {/* Display the time */}
             </div>
           ))}
