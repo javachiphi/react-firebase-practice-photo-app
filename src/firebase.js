@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getStorage } from 'firebase/storage';
+import { getAuth } from 'firebase/auth';
 
 // TODO: Replace with your app's Firebase project configuration
 const firebaseConfig = {
@@ -22,3 +23,4 @@ console.log('firebase connected?', firebaseApp)
 
 export const storage = getStorage(firebaseApp);
 export const database = getDatabase(firebaseApp);
+export const auth = getAuth(firebaseApp);
