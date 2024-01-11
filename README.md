@@ -1,15 +1,38 @@
-# Rocket Academy Coding Bootcamp: Instagram
+# React with Firebase DB Practice
 
-https://bc.rocketacademy.co/2-full-stack/2.e-exercises/2.e.1-instagram-chat
+## Overview
+This project is a practice exercise in integrating Firebase with a React-based application, based on Rocket Academy's [Instagram Chat project]([url](https://github.com/rocketacademy/instagram-bootcamp)). It uses Firebase in managing real-time data, authentication, storage, and hosting within a React application.
 
-## Available Scripts
+## Learned Concepts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). In the project directory, you can run:
+1. Firebase Realtime Database
+   - Structuring data in a NoSQL JSON database
+   - Configuring real-time database rules
+2. Firebase Storage
+   - Storing and retrieving user-generated files in the cloud.
+3. Firebase Authentication
+   - Implementing a secure authentication system.
+4. Firebase Hosting:
+   - Deploying web applications to Firebase hosting for global access.
 
-### `npm start`
+## Features
+Photo uploads.
+'Like' feature for photos.
+User authentication (sign-up, login, and logout) 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
+
+1. Clone the repository
+   `git clone https://github.com/javachiphi/create-chat-app`
+2. Install dependencies
+     `npm install`
+3. Set up Firebase
+   - Create a new Firebase project in the Firebase console.
+   - Add your Firebase project configuration to a .env file in the root of the project.
+
+## Deployment
+Deploy to Firebase hosting `firebase deploy` 
+
+
+
