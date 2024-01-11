@@ -16,9 +16,9 @@ This project is a practice exercise in integrating Firebase with a React-based a
    - Deploying web applications to Firebase hosting for global access.
 
 ## Features
-Photo uploads.
-'Like' feature for photos.
-User authentication (sign-up, login, and logout) 
+- Photo uploads.
+- 'Like' feature for photos.
+- User authentication (sign-up, login, and logout) 
 
 
 ## Getting Started
